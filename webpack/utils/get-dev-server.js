@@ -20,7 +20,7 @@ const getDevServer = () => {
     open: true,
     port: devConstants.PORT,
     devMiddleware: {
-      writeToDisk: true,
+      writeToDisk: false,
     },
   };
 
