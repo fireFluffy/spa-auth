@@ -1,0 +1,32 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.cache
+
+# templates
+/assets/html/index.html
+
+# env
+.env.development
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# stats
+/webpack-stats
+
+# npm
+npm-debug.log*
+npm-error.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
