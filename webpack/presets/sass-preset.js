@@ -3,18 +3,19 @@
 const { getStyleLoader } = require('../loaders/style-loader');
 const { getCssLoader } = require('../loaders/css-loader');
 const { getPostCssLoader } = require('../loaders/postcss-loader');
-const { getLessLoader } = require('../loaders/less-loader');
+const { getSassLoader } = require('../loaders/sass-loader');
 
-const getLessPreset = () => {
+
+const getSassPreset = (target) => {
   const use = [
-    getStyleLoader(),
+    getStyleLoader(target),
     getCssLoader(),
     getPostCssLoader(),
-    getLessLoader(),
+    getSassLoader(),
   ];
 
   const preset = {
-    test: /\.less$/i,
+    test: /\.s?[ac]ss$/i,
     sideEffects: true,
     use,
   };
@@ -22,4 +23,4 @@ const getLessPreset = () => {
   return preset;
 };
 
-module.exports = { getLessPreset };
+module.exports = { getSassPreset };

@@ -12,7 +12,7 @@ const { ALIASES_OBJECT } = require('./utils/aliases');
 // Preset
 const { getTsxPreset } = require('./presets/tsx-preset');
 const { getJsxBabelPreset } = require('./presets/jsx-babel-preset');
-const { getLessPreset } = require('./presets/less-preset');
+const { getSassPreset } = require('./presets/sass-preset');
 const { getCssPreset } = require('./presets/css-preset');
 const { getImgPreset } = require('./presets/img-preset');
 const { getSvgPreset } = require('./presets/svg-preset');
@@ -54,7 +54,7 @@ const config = {
       getTsxPreset(),
       getJsxBabelPreset(),
 
-      getLessPreset(),
+      getSassPreset(),
       getCssPreset(),
 
       getImgPreset(),

@@ -20,10 +20,11 @@ const prodConfig = {
   entry: {
     bundle: [path.join(PATH_TO_PROJECT, 'index.jsx')],
     vendorStyles: [
-      path.join(PATH_TO_ASSETS, 'less/global.less'),
+      path.join(PATH_TO_ASSETS, 'sass/global.sass'),
     ],
     styles: [
-      path.join(PATH_TO_ASSETS, 'less/main.less'),
+      path.join(PATH_TO_ASSETS, 'sass/main.sass'),
+      path.join(PATH_TO_ASSETS, 'sass/sources.sass'),
     ],
   },
 
