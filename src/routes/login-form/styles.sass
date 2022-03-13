@@ -1,4 +1,18 @@
 .login-form
   flex: 1
+  display: flex
+  align-items: center
   background-image: url('../svg/routes/login-form/background.svg')
-  background-size: 500px 500px 
+  background-repeat: no-repeat
+  background-size: 60% auto
+  background-position: center right
+
+.form-block
+  background-color: $color-gray-0
+
+  &__title
+    @extend %title-3
+
+  &__body
+    margin-top: #{$spacing-sm}px
+    

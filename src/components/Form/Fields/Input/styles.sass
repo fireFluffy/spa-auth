@@ -1,0 +1,25 @@
+.input-block
+  display: flex
+  flex-flow: column nowrap
+
+  input
+    border: none
+    outline: none
+    background-color: inherit
+    @extend %text-2
+    color: $font-color-main
+
+    &::placeholder
+      @extend %text-2
+      color: $color-biloba-flower
+
+
+  &__body
+    overflow: hidden
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    padding: #{$spacing-sxs * 5}px #{$spacing-md}px
+    border-radius: 8px
+    background-color: $color-titan-white
+    cursor: text

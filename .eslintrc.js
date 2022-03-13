@@ -53,6 +53,7 @@ module.exports = {
         'import/prefer-default-export': 0,
         'linebreak-style': 0,
         'eslint linebreak-style': [0, 'error', IS_WINDOWS ? 'windows' : 'unix'],
+        'react/display-name': 0,
         'import/extensions': [
           'error',
           'ignorePackages',

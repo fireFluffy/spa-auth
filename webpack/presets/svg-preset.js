@@ -7,6 +7,7 @@ const getSvgPreset = () => {
   const preset = {
     test: /\.svg$/,
     include: /[/\\]svg[/\\]/,
+    issuer: /\.[jt]sx?$/,
     use: [
       getSvgrWebpackLoader(),
       getSvgUrlLoader(),
