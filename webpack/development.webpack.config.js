@@ -19,6 +19,7 @@ const devConfig = {
   entry: {
     main: [path.join(PATH_TO_PROJECT, 'index.tsx')],
     styles: [
+      path.join(PATH_TO_ASSETS, 'less/global.less'),
       path.join(PATH_TO_ASSETS, 'less/main.less'),
     ],
   },

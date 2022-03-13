@@ -35,7 +35,6 @@ const config = {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.mjs'],
     modules: [PATH_TO_PROJECT, 'node_modules'],
     plugins: [PnpWebpackPlugin],
-    fallback: { 'assert': require.resolve('assert/') },
   },
 
   resolveLoader: {

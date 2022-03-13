@@ -16,15 +16,18 @@
   <link rel="icon" type="image/png" sizes="96x96" href="<%= htmlWebpackPlugin.options.endpoint %>/assets/manifest/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.options.endpoint %>/assets/manifest/favicon-16x16.png">
   <link rel="manifest" href="<%= htmlWebpackPlugin.options.endpoint %>/assets/manifest/manifest.json" />
+
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.options.endpoint %>/assets/manifest/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="google" content="notranslate">
+
   <% if (htmlWebpackPlugin.options.env) { %>
     <script src="<%= htmlWebpackPlugin.options.env %>"></script>
   <% } %>
+
   <title>SPA - Auth</title>
 </head>
 <body>

@@ -18,20 +18,10 @@ const toPathManifest = path.join(
   'assets/manifest',
 );
 
-const fromPathLib = path.join(PATH_TO_ASSETS, 'lib');
-const toPathLib = path.join(toPathMain, 'assets/lib');
-
-const fromPathHtml = path.join(PATH_TO_ASSETS, 'index.html');
-const toPathHtml = path.join(
-  toPathMain,
-  'index.html',
-);
-
 const getCopyWebpackPlugin = () => {
   const plugin = new CopyWebpackPlugin({
     patterns: [
       { from: fromPathManifest, to: toPathManifest },
-      { from: fromPathLib, to: toPathLib },
     ],
   });
 
