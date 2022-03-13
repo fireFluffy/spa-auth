@@ -1,5 +1,6 @@
 // Modules
-import React, { FC, memo, useEffect, useRef } from 'react';
+import React, { FC, memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import classnames from 'classnames';
 import { v4 as uuid } from 'uuid';
 // Components
 import { Field } from '../Field';
@@ -8,33 +9,74 @@ import { CONFIG } from './lib/config';
 // Types
 import { TInputProps } from './types';
 
-const InputComponent: FC<TInputProps> = ({ input, inputRef, maxLength, placeholder }) => {
+const InputComponent: FC<TInputProps> = ({
+  input,
+  inputRef: customInputRef,
+  maxLength,
+  postfixIcon: PostfixIcon,
+  placeholder,
+  type,
+}) => {
+  const [focus, setFocus] = useState<boolean>(false);
+
+  const inputRef = useRef(null);
   const fieldId = useRef<string>(null);
 
   useEffect(() => {
+    if (!inputRef.current) {
+      inputRef.current = customInputRef || CONFIG.getInputRef();
+    }
+
     if (!fieldId.current) {
       fieldId.current = `form-field-${uuid()}`;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const onClickInputBody = useCallback(() => {
+    if (!focus) {
+      inputRef.current.focus();
+      setFocus(true);
+    }
+  }, [focus, inputRef]);
+
+  const inputOnBlurCallback = useCallback(
+    (e) => {
+      if (focus) {
+        input.onBlur(e);
+        setFocus(false);
+      }
+    },
+    [focus, input],
+  );
+
+  const inputBodyStyles = useMemo(
+    () =>
+      classnames('input-block__body', {
+        'input-block__body_focused': focus,
+        'input-block__body_unfocused': !focus,
+      }),
+    [focus],
+  );
 
   return (
     <div className="input-block">
-      <div className="input-block__body">
+      <div className={inputBodyStyles} onClick={onClickInputBody}>
         <div className="input-block__input">
           <input
             ref={inputRef}
             maxLength={maxLength}
             name={input.name}
-            onBlur={input.onBlur}
+            onBlur={inputOnBlurCallback}
             onChange={input.onChange}
             onFocus={input.onFocus}
             placeholder={placeholder}
-            type="text"
+            type={type}
             value={input.value}
           />
         </div>
 
-        <div className="input-block__postfix-icon"></div>
+        {!!PostfixIcon && <div className="input-block__postfix-icon">{PostfixIcon}</div>}
       </div>
 
       <div className="input-block__description"></div>
@@ -45,6 +87,7 @@ const InputComponent: FC<TInputProps> = ({ input, inputRef, maxLength, placehold
 InputComponent.defaultProps = {
   inputRef: CONFIG.getInputRef(),
   maxLength: 500,
+  type: 'text',
 };
 
 export const Input = memo(InputComponent);
@@ -52,6 +95,5 @@ export const Input = memo(InputComponent);
 export const InputField = memo(
   Field({
     component: InputComponent,
-    type: 'text',
   }),
 );

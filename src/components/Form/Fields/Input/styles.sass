@@ -3,23 +3,47 @@
   flex-flow: column nowrap
 
   input
-    border: none
-    outline: none
-    background-color: inherit
-    @extend %text-2
-    color: $font-color-main
-
-    &::placeholder
+    &[type=text], &[type=password]
+      width: 100%
+      padding: #{$spacing-sxs * 5}px #{$spacing-md}px
+      border: none
+      outline: none
+      background-color: inherit
       @extend %text-2
-      color: $color-biloba-flower
+      color: $font-color-main
 
+      &::placeholder
+        @extend %text-2
+        color: $color-biloba-flower
 
   &__body
+    width: 100%
     overflow: hidden
+    position: relative
     display: flex
     flex-flow: row nowrap
     align-items: center
-    padding: #{$spacing-sxs * 5}px #{$spacing-md}px
     border-radius: 8px
     background-color: $color-titan-white
+    box-shadow: 0 0 5px rgba(81, 203, 238, 0)
+    transition: all 0.30s ease-in-out
     cursor: text
+
+    &_unfocused
+      box-shadow: 0 0 10px rgba(167, 163, 255, 0)
+
+    &_focused
+      box-shadow: 0 0 10px rgba(167, 163, 255, 1)
+
+  &__input
+    width: 100%
+
+  &__postfix-icon
+    position: absolute
+    top: #{$spacing-sxs * 5}px
+    right: #{$spacing-md}px
+    width: 17px
+    height: 17px
+    font-size: 1.0625em
+    color: $color-biloba-flower
+

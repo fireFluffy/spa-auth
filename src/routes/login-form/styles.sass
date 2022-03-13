@@ -1,3 +1,5 @@
+@import './components/body-form/styles'
+
 .login-form
   flex: 1
   display: flex
@@ -8,7 +10,10 @@
   background-position: center right
 
 .form-block
-  background-color: $color-gray-0
+  width: 40%
+  min-width: 300px
+  max-width: 450px
+  padding: #{$spacing-md}px
 
   &__title
     @extend %title-3

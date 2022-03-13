@@ -53,13 +53,12 @@ const FieldComponent: FC<TFieldProps> = ({
 };
 
 FieldComponent.defaultProps = {
-  type: 'text',
   value: undefined,
 };
 
 const FieldMemo = memo(setForwardRef(FieldComponent));
 
 export const Field: TField =
-  ({ component, type }) =>
+  ({ component }) =>
     (props: { [key: string]: unknown }) =>
-    <FieldMemo {...props} type={type} component={component} />;
+    <FieldMemo {...props} component={component} />;
