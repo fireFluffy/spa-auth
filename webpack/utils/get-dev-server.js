@@ -19,6 +19,9 @@ const getDevServer = () => {
     host: devConstants.HOST,
     open: true,
     port: devConstants.PORT,
+    devMiddleware: {
+      writeToDisk: true,
+    },
   };
 
   return config;
