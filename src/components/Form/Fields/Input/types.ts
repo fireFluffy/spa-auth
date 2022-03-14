@@ -3,6 +3,8 @@ import { FieldRenderProps } from 'react-final-form';
 import { IconType } from 'react-icons';
 
 export interface TInputProps {
+  autoComplete?: boolean;
+  description?: JSX.Element;
   input: FieldRenderProps<string, HTMLInputElement>;
   inputRef?: React.MutableRefObject<HTMLInputElement>;
   maxLength?: number;

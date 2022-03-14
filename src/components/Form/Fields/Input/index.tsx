@@ -10,6 +10,8 @@ import { CONFIG } from './lib/config';
 import { TInputProps } from './types';
 
 const InputComponent: FC<TInputProps> = ({
+  autoComplete,
+  description,
   input,
   inputRef: customInputRef,
   maxLength,
@@ -65,6 +67,7 @@ const InputComponent: FC<TInputProps> = ({
         <div className="input-block__input">
           <input
             ref={inputRef}
+            autoComplete={autoComplete ? 'on' : 'off'}
             maxLength={maxLength}
             name={input.name}
             onBlur={inputOnBlurCallback}
@@ -79,13 +82,13 @@ const InputComponent: FC<TInputProps> = ({
         {!!PostfixIcon && <div className="input-block__postfix-icon">{PostfixIcon}</div>}
       </div>
 
-      <div className="input-block__description"></div>
+      {!!description && <div className="input-block__description">{description}</div>}
     </div>
   );
 };
 
 InputComponent.defaultProps = {
-  inputRef: CONFIG.getInputRef(),
+  autoComplete: true,
   maxLength: 500,
   type: 'text',
 };

@@ -18,8 +18,19 @@ const PasswordFieldComponent: FC = () => {
     [isOpen, onClick],
   );
 
+  const description = useMemo(
+    () => (
+      <div className="description-field">
+        <span>Forgor password?</span>
+      </div>
+    ),
+    [],
+  );
+
   return (
     <InputField
+      autoComplete={false}
+      description={description}
       name="password"
       placeholder="password"
       postfixIcon={Icon}
